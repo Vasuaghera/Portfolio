@@ -142,15 +142,6 @@ const Contact = () => {
                     >
                       <SiLeetcode className="text-lg md:text-4xl" />
                     </a>
-                    <a 
-                      href="https://www.codechef.com/users/vasu_aghera" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      aria-label="Codechef"
-                      className="hover:scale-110 hover:text-white transition-all duration-300"
-                    >
-                      <SiCodechef className="text-lg md:text-4xl" />
-                    </a>
                   </motion.div>
                 </motion.div>
               </div>
