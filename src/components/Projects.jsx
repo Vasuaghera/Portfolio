@@ -1,103 +1,108 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiGithub, FiExternalLink, FiList, FiInfo } from 'react-icons/fi';
 import ProjectCard from './ProjectCard';
+
+// Import project images
+import oops from '../asset/oops.png';
+import d from '../asset/d.png';
+import a from '../asset/a.png';
+import ti from '../asset/ti.png';
+import cp from '../asset/cp.png';
+import f from '../asset/f.png';
 
 const Projects = () => {
   const mernProjects = [
     {
-      title: "Doctor Appointment System",
-      description: "A full-stack web application where patients can book appointments with doctors, and admins can manage doctors, appointments, and earnings.",
-      image: "/src/asset/d.png",
-      githubLink: "https://github.com/Vasuaghera/Doctor_appointment_booking_system",
-      liveLink: "https://doctor-appointment-booking-system-jade.vercel.app/",
+      title: "DineDash - Food Delivery Platform",
+      description: "A MERN stack food delivery application inspired by Zomato and Swiggy, enabling users to explore restaurants, order food, and manage deliveries. Features include user authentication, real-time order tracking, and a comprehensive admin panel for restaurant management.",
+      image: d,
+      githubLink: "https://github.com/Vasuaghera/DineDash",
+      liveLink: "https://dinedash.vercel.app/",
       moreDetails: [
-        "Full-stack application enabling patients to book appointments with doctors.",
-        "Role-based dashboards for patients, doctors, and admins to manage profiles and appointments.",
-        "Secure user authentication with login and registration.",
-        "Email notifications to users.",
-        "Admin panel to manage doctors, appointments, and view earnings.",
-        "Built with React, Express.js, MongoDB."
-      ]
+        "Built with React, Redux, Node.js, Express.js, and MongoDB.",
+        "Implemented JWT for secure user authentication and authorization.",
+        "Real-time order status updates using Socket.IO (or similar).",
+        "Responsive UI/UX design with Tailwind CSS for seamless experience across devices.",
+        "Integrated payment gateway (e.g., Stripe) for secure transactions.",
+      ],
     },
     {
-      title: "French Elite Clothing Store",
-      description: "A modern e-commerce clothing store platform featuring product management, and cart functionality.",
-      image: "/src/asset/f.png",
-      githubLink: "https://github.com/Vasuaghera/Clothing-Website",
-      liveLink: "https://clothing-website-frontend3.onrender.com/",
+      title: "FilmyFlow - Movie Platform",
+      description: "FilmyFlow is a MERN stack movie platform inspired by Netflix, allowing users to browse, search, and watch movies. Key features include a robust movie database, user profiles, watchlists, and personalized recommendations.",
+      image: f,
+      githubLink: "https://github.com/Vasuaghera/FilmyFlow",
+      liveLink: "https://filmyflow.vercel.app/",
       moreDetails: [
-        "E-commerce website for browsing and purchasing clothing products.",
-        "Admin panel for product and order management.",
-        "Shopping cart functionality with product add/remove and checkout flow..",
-        "User authentication and secure account management.",
-        "Fast, modern UI built with React and Vite.",
-        "Backend powered by Node.js, Express.js, and MongoDB for data handling."
-      ]
+        "Utilized React for dynamic frontend and Node.js with Express.js for backend APIs.",
+        "MongoDB for flexible data storage of movies, users, and watchlists.",
+        "Implemented movie search functionality with filters and sorting options.",
+        "User authentication and personalized dashboards for watch history and favorites.",
+        "Integrated with TMDB API for comprehensive movie data and posters.",
+      ],
     },
     {
-      title: "Authentication App",
-      description: "A secure authentication app with email/password login, Google OAuth, password reset, and OTP verification.",
-      image: "/src/asset/a.png",
-      githubLink: "https://github.com/Vasuaghera/Authentication-App",
-      liveLink: "https://authentication-app-9.onrender.com/",
+      title: "AirBnb Clone - Accomodation Booking Platform",
+      description: "An Airbnb clone built with the MERN stack, allowing users to list, search, and book accommodations. Features include property listings with images, user authentication, booking management, and a messaging system.",
+      image: a,
+      githubLink: "https://github.com/Vasuaghera/AirBnb-Clone",
+      liveLink: "https://airbnb-clone-rose-beta.vercel.app/",
       moreDetails: [
-        "Secure authentication system supporting email/password login and Google OAuth.",
-        "OTP verification.",
-        "User profile management with options to update details.",
-        "Password reset functionality via email to enhance account security.",
-        "Implemented JWT for secure session management.",
-        "Built using React, Node.js, Express.js, MongoDB, JWT, and OAuth."
-      ]
-    }
+        "Frontend developed with React and Tailwind CSS for modern UI.",
+        "Backend powered by Node.js and Express.js, with MongoDB as the database.",
+        "User authentication, property creation, and booking functionalities.",
+        "Image upload (e.g., Cloudinary) for property photos.",
+        "Responsive design for optimal viewing on all devices.",
+      ],
+    },
   ];
 
   const reactProjects = [
     {
-      title: "Tic-Tac-Toe Game",
-      description: "A modern, animated Tic-Tac-Toe game built with React and Tailwind CSS. Features beautiful animations .",
-      image: "/src/asset/ti.png",
-      githubLink: "https://github.com/Vasuaghera/Tic-tac-toe",
-      liveLink: "https://tic-tac-toe-hwhg.onrender.com/",
+      title: "TI-84 Plus Calculator Clone",
+      description: "A functional clone of the TI-84 Plus graphing calculator built using React. This project demonstrates complex UI/UX implementation and intricate state management for calculator logic.",
+      image: ti,
+      githubLink: "https://github.com/Vasuaghera/TI-84-Plus-Calculator-Clone",
+      liveLink: "https://ti-84-plus-calculator.vercel.app/",
       moreDetails: [
-        "Two-player Tic-Tac-Toe with intuitive interactions.",
-        "Smooth transitions and visual feedback enhance user experience.",
-        "Adds celebratory animations when a player wins.",
-        "Optimized for various devices, ensuring consistent gameplay across screen sizes.",
-        "Modern aesthetic with transparent elements and subtle shadows.",
-        "Built with React, Tailwind CSS, and Vite"
-      ]
+        "Developed with React for component-based architecture.",
+        "Implemented full calculator functionality, including arithmetic operations, scientific functions, and graphing capabilities.",
+        "Responsive design to adapt to different screen sizes.",
+        "Complex state management for handling input, display, and calculation logic.",
+        "Clean and intuitive user interface resembling the original TI-84 Plus.",
+      ],
     },
     {
-      title: "Crypto Price Tracker",
-      description: "A responsive React application that displays real-time prices of cryptocurrencies. Features include a search functionality and interactive charts for price analysis.",
-      image: "/src/asset/cp.png",
-      githubLink: "https://github.com/Vasuaghera/Crypto-Price-Tracker",
-      liveLink: "https://crypto-price-tracker-7doy.vercel.app/",
+      title: "CodePen Clone",
+      description: "A simplified CodePen clone built with React, allowing users to write and preview HTML, CSS, and JavaScript code in real-time. Features include a resizable editor and live output display.",
+      image: cp,
+      githubLink: "https://github.com/Vasuaghera/CodePen-Clone",
+      liveLink: "https://codepen-clone-drab.vercel.app/",
       moreDetails: [
-        "Fetches and displays up-to-date prices of the top 100 cryptocurrencies using the CoinGecko API.",
-        "Allows users to search for specific cryptocurrencies by name . ",
-        "Utilizes Chart.js to present historical price data in an engaging visual format.",
-        "Temperature, humidity, and wind speed details",
-        "Ensures optimal viewing experience across various devices and screen sizes.",
-        "Implements a dark-themed user interface for better visual comfort."
-      ]
-    }
+        "Frontend built using React for dynamic UI updates.",
+        "Real-time code compilation and rendering using iframes.",
+        "Resizable panels for HTML, CSS, JavaScript editors, and live preview.",
+        "Syntax highlighting for improved code readability.",
+        "Simple and intuitive interface for quick prototyping.",
+      ],
+    },
   ];
 
   const coreProjects = [
     {
-      title: "RideEase – Object-Oriented Ride Booking System",
-      description: "A console-based ride booking system developed in C++ using object-oriented programming principles. Features include user ride booking, fare calculation .",
-      image: "/src/asset/oops.png",
-      githubLink: "https://github.com/Vasuaghera/RideEase-Object-Oriented-Ride-Booking-System-in-C-",
-      // liveLink: "https://github.com/Vasuaghera/RideEase-Object-Oriented-Ride-Booking-System-in-C-",
+      title: "OOPs Concepts (C++)",
+      description: "A C++ project demonstrating fundamental Object-Oriented Programming (OOP) concepts such as encapsulation, inheritance, polymorphism, and abstraction through practical examples.",
+      image: oops,
+      githubLink: "https://github.com/Vasuaghera/OOPs-Concepts",
+      liveLink: "#", // No live link for a C++ console application
       moreDetails: [
-        "Utilizes classes and objects to encapsulate functionalities like user management, ride booking, and fare calculation.",
-        "Enables users to book rides by providing pickup and drop-off locations.",
-        "Calculates fares based on distance and predefined rates, providing users with cost estimates.",
-        "Built with C++"
-      ]
-    }
+        "Implemented classes and objects to model real-world entities.",
+        "Demonstrated inheritance for code reusability and hierarchical relationships.",
+        "Showcased polymorphism through virtual functions and function overriding.",
+        "Utilized encapsulation to hide implementation details and expose interfaces.",
+        "Clear and well-commented code for educational purposes.",
+      ],
+    },
   ];
 
   return (
