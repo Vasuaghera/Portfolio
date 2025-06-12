@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { FiAward, FiExternalLink, FiX } from 'react-icons/fi';
 
 const Certifications = () => {
@@ -17,21 +17,13 @@ const Certifications = () => {
   ];
 
   return (
-    <motion.section
+    <section
       id="certifications"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
       className="py-20 bg-gray-50 dark:bg-gray-900"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -41,17 +33,13 @@ const Certifications = () => {
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Professional certifications and training programs that validate my expertise in various technologies.
           </p>
-        </motion.div>
+        </div>
 
         {/* Certifications Timeline */}
         <div className="relative pl-8 border-l border-gray-300 dark:border-gray-700">
           {certifications.map((cert, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="mb-8 flex items-start"
             >
               {/* Timeline Indicator */}
@@ -74,7 +62,7 @@ const Certifications = () => {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -111,7 +99,7 @@ const Certifications = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.section>
+    </section>
   );
 };
 

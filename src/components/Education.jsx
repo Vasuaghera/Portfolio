@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion'; // Remove motion import if no longer needed
 import { FiBook, FiExternalLink } from 'react-icons/fi';
 
 const Education = () => {
@@ -19,21 +19,13 @@ const Education = () => {
   ];
 
   return (
-    <motion.section
+    <section
       id="education"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
       className="py-20 bg-gray-50 dark:bg-gray-900"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -43,17 +35,13 @@ const Education = () => {
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             My academic journey and educational background
           </p>
-        </motion.div>
+        </div>
 
         {/* Education Timeline */}
         <div className="relative pl-8 border-l border-gray-300 dark:border-gray-700">
           {education.map((edu, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="mb-8 flex items-start"
             >
               {/* Timeline Indicator */}
@@ -89,11 +77,11 @@ const Education = () => {
                   {edu.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
