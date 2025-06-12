@@ -39,7 +39,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg md:col-span-2 mx-auto w-11/12 md:max-w-none md:p-12"
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Contact Information
@@ -88,49 +88,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Coding Profiles */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              Coding Profiles
-            </h3>
-            
-            <div className="space-y-6">
-              <a
-                href="https://codeforces.com/profile/Vasu_aghera"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
-              >
-                <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center">
-                  <SiCodeforces className="w-6 h-6 text-red-600 dark:text-red-400" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Codeforces</p>
-                  <p className="text-gray-900 dark:text-white">vassu.ag</p>
-                </div>
-              </a>
-
-              <a
-                href="https://leetcode.com/u/_Vasu_aghera______/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
-              >
-                <div className="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
-                  <SiLeetcode className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">LeetCode</p>
-                  <p className="text-gray-900 dark:text-white">_Vasu_aghera______</p>
-                </div>
-              </a>
-            </div>
-          </motion.div>
+          
         </div>
       </div>
     </motion.section>

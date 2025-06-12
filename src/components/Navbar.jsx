@@ -86,6 +86,7 @@ const Navbar = () => {
     { id: 'home', label: 'Home', icon: FiHome },
     { id: 'education', label: 'Education', icon: FiBook },
     { id: 'certifications', label: 'Certifications', icon: FiAward },
+    { id: 'coding-profiles', label: 'Coding Profiles', icon: FiCode },
     { id: 'projects', label: 'Projects', icon: FiLayers },
     { id: 'contact', label: 'Contact', icon: FiMail },
   ];
