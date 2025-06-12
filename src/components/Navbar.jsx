@@ -12,24 +12,40 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
-      // Update active section based on scroll position
-      const sections = ['home', 'projects', 'Technology', 'certifications', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
+      // Update active section based on scroll position with offset
+      const sections = ['home', 'education', 'certifications', 'projects', 'contact'];
+      const navbarHeight = 80; // Height of the navbar
+      
+      let newActiveSection = 'home'; // Default to home
+
+      // Iterate through sections to find the one currently in view
+      for (let i = 0; i < sections.length; i++) {
+        const sectionId = sections[i];
+        const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // A section is considered active if its top is within the visible viewport
+          // adjusted for navbar height, and it's not entirely below the viewport.
+          if (rect.top <= navbarHeight && rect.bottom >= navbarHeight) {
+            newActiveSection = sectionId;
+            break; // Found the active section, no need to check further
+          }
         }
-        return false;
-      });
+      }
       
-      if (currentSection) {
-        setActiveSection(currentSection);
+      if (newActiveSection !== activeSection) {
+        setActiveSection(newActiveSection);
       }
     };
     
+    // Add smooth scroll behavior to the html element
+    // document.documentElement.style.scrollBehavior = 'smooth';
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      // document.documentElement.style.scrollBehavior = 'auto';
+    };
   }, []);
 
   // Prevent body scroll when mobile menu is open
@@ -44,12 +60,25 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
+  const handleCloseMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = 'unset'; // Ensure scroll is re-enabled
+  };
+
   const handleScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = 80; // Height of the navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
       setActiveSection(id);
-      setIsMobileMenuOpen(false);
+      handleCloseMobileMenu(); // Close mobile menu after navigation
     }
   };
 
@@ -141,7 +170,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden transition-opacity duration-300"
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={handleCloseMobileMenu}
         />
       )}
 

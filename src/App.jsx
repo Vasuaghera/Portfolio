@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <ThemeProvider>
-      <div className='overflow-x-hidden text-gray-800 dark:text-gray-200 antialiased transition-colors duration-300'> 
+      <div className='text-gray-800 dark:text-gray-200 antialiased transition-colors duration-300'> 
         <div className='fixed inset-0 -z-10'>
           <div className="relative h-full w-full bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
