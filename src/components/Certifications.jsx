@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink, FiX } from 'react-icons/fi';
+import wdCert from '../asset/wd.jpeg';
+import sdCert from '../asset/sd.jpg';
 
 const Certifications = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -12,11 +14,11 @@ const Certifications = () => {
   const certifications = [
     {
       title: "Full Stack Web Development",
-      img: "/src/asset/wd.jpeg"
+      img: wdCert
     },
     {
       title: "System Design Masterclass (2025)",
-      img: "/src/asset/sd.jpg",
+      img: sdCert,
     }
   ];
 
