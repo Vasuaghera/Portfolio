@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink, FiX } from 'react-icons/fi';
 
 const Certifications = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
 
   const certifications = [
     {
@@ -17,13 +21,17 @@ const Certifications = () => {
   ];
 
   return (
-    <section
+    <motion.section
       id="certifications"
       className="py-20 bg-gray-50 dark:bg-gray-900"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -33,12 +41,12 @@ const Certifications = () => {
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Professional certifications and training programs that validate my expertise in various technologies.
           </p>
-        </div>
+        </motion.div>
 
         {/* Certifications Timeline */}
         <div className="relative pl-8 border-l border-gray-300 dark:border-gray-700">
           {certifications.map((cert, index) => (
-            <div
+            <motion.div
               key={index}
               className="mb-8 flex items-start"
             >
@@ -55,52 +63,44 @@ const Certifications = () => {
                   </h3>
                   <button
                     onClick={() => setSelectedImage(cert.img)}
-                    className="inline-flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+                    className="inline-flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700"
                   >
                     <FiExternalLink className="w-3 h-3" />
                     View
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
 
       {/* Image Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
-            onClick={() => setSelectedImage(null)}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full"
+            onClick={e => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-4xl w-full"
-              onClick={e => e.stopPropagation()}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors duration-300"
             >
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors duration-300"
-              >
-                <FiX className="w-6 h-6" />
-              </button>
-              <img
-                src={selectedImage}
-                alt="Certificate"
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
+              <FiX className="w-6 h-6" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Certificate"
+              className="w-full h-auto rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
+      </div>
+    </motion.section>
   );
 };
 
-export default Certifications; 
+export default Certifications;

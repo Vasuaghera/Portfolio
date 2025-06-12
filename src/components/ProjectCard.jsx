@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // Added framer-motion imports
 import { FiGithub, FiExternalLink, FiList, FiInfo } from 'react-icons/fi';
 
 const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDetails }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative"
+    <motion.div // Changed div to motion.div
+      initial={{ opacity: 0, y: 20 }} // Added initial animation state
+      whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+      transition={{ duration: 0.5 }} // Added transition properties
+      viewport={{ once: true }} // Ensures animation plays only once
+      className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl flex flex-col h-full relative" // Removed transition-all duration-300
     >
       {/* Toggle Button */}
       <div className="absolute top-3 right-3 z-20">
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          className="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl" // Removed transition-all duration-300
           title={showDetails ? "Show Project Info" : "Show Features"}
         >
           {showDetails ? (
@@ -28,23 +28,29 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
         </button>
       </div>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait"> // Re-added AnimatePresence wrapper
         {!showDetails ? (
-          <motion.div
+          <motion.div // Changed div to motion.div
             key="project-info"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0 }} // Added initial animation state
+            animate={{ opacity: 1 }} // Added animate animation state
+            exit={{ opacity: 0 }} // Added exit animation state
+            transition={{ duration: 0.3 }} // Added transition properties
             className="flex flex-col h-full"
           >
             {/* Project Image with Title Overlay */}
             <div className="relative h-56 overflow-hidden">
-              <img
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              />
+              <motion.div // Wrap image in motion.div
+                whileHover={{ scale: 1.1 }} // Apply scale animation on hover
+                transition={{ duration: 0.7 }} // Match original transition duration
+                className="w-full h-full"
+              >
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
               
               {/* Title */}
@@ -69,7 +75,7 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
                   href={githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 text-sm font-medium group-hover:shadow-md"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
                 >
                   <FiGithub className="w-5 h-5" />
                   <span>View Code</span>
@@ -78,7 +84,7 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
                   href={liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 text-sm font-medium group-hover:shadow-md"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
                 >
                   <FiExternalLink className="w-5 h-5" />
                   <span>Live Demo</span>
@@ -87,12 +93,12 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
             </div>
           </motion.div>
         ) : (
-          <motion.div
+          <motion.div // Changed div to motion.div
             key="features"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0 }} // Added initial animation state
+            animate={{ opacity: 1 }} // Added animate animation state
+            exit={{ opacity: 0 }} // Added exit animation state
+            transition={{ duration: 0.3 }} // Added transition properties
             className="p-6 flex flex-col h-full"
           >
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
@@ -112,7 +118,7 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
                 href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 text-sm font-medium group-hover:shadow-md"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
               >
                 <FiGithub className="w-5 h-5" />
                 <span>View Code</span>
@@ -121,7 +127,7 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
                 href={liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 text-sm font-medium group-hover:shadow-md"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
               >
                 <FiExternalLink className="w-5 h-5" />
                 <span>Live Demo</span>

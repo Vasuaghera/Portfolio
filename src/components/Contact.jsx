@@ -62,28 +62,28 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="mt-8">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                Connect with me
-              </h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://www.linkedin.com/in/vasu-aghera-375052251/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300"
-                >
-                  <FaLinkedin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </a>
-                <a
-                  href="https://github.com/vasuaghera"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300"
-                >
-                  <FaGithub className="w-6 h-6 text-gray-900 dark:text-white" />
-                </a>
-              </div>
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white my-6">
+              Find Me On
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://linkedin.com/in/vasu-aghera-375052251"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
+              >
+                <FaLinkedin className="w-5 h-5" />
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/vasuaghera"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-700 text-white hover:bg-gray-800 transition-colors duration-300"
+              >
+                <FaGithub className="w-5 h-5" />
+                <span>GitHub</span>
+              </a>
             </div>
           </motion.div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion'; // Added framer-motion import
 import { FiGithub, FiExternalLink, FiList, FiInfo } from 'react-icons/fi';
 import ProjectCard from './ProjectCard';
 
@@ -110,23 +110,22 @@ const Projects = () => {
   ];
 
   return (
-    <motion.section
+    <motion.section // Changed section to motion.section
       id="projects"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 40 }} // Added initial animation state
+      whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+      transition={{ duration: 0.7 }} // Added transition properties
+      viewport={{ once: true }} // Ensures animation plays only once
       className="py-20 bg-gray-50 dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+        <motion.div // Changed div to motion.div
+          initial={{ opacity: 0, y: 20 }} // Added initial animation state
+          whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+          transition={{ duration: 0.5 }} // Added transition properties
+          viewport={{ once: true }} // Ensures animation plays only once
           className="text-center mb-16"
-
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             My Projects
@@ -138,11 +137,11 @@ const Projects = () => {
 
         {/* Full Stack MERN Projects */}
         <div className="mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
+          <motion.div // Changed div to motion.div
+            initial={{ opacity: 0, y: 20 }} // Added initial animation state
+            whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+            transition={{ duration: 0.5, delay: 0.2 }} // Added transition properties
+            viewport={{ once: true }} // Ensures animation plays only once
             className="mb-8"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
@@ -156,12 +155,12 @@ const Projects = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mernProjects.map((project, index) => (
-              <motion.div
+              <motion.div // Changed div to motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 20 }} // Added initial animation state
+                whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+                transition={{ duration: 0.5, delay: index * 0.1 }} // Added transition properties with staggered delay
+                viewport={{ once: true }} // Ensures animation plays only once
               >
                 <ProjectCard {...project} />
               </motion.div>
@@ -171,11 +170,11 @@ const Projects = () => {
 
         {/* React Projects */}
         <div className="mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
+          <motion.div // Changed div to motion.div
+            initial={{ opacity: 0, y: 20 }} // Added initial animation state
+            whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+            transition={{ duration: 0.5, delay: 0.2 }} // Added transition properties
+            viewport={{ once: true }} // Ensures animation plays only once
             className="mb-8"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
@@ -189,12 +188,12 @@ const Projects = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reactProjects.map((project, index) => (
-              <motion.div
+              <motion.div // Changed div to motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 20 }} // Added initial animation state
+                whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+                transition={{ duration: 0.5, delay: index * 0.1 }} // Added transition properties with staggered delay
+                viewport={{ once: true }} // Ensures animation plays only once
               >
                 <ProjectCard {...project} />
               </motion.div>
@@ -204,11 +203,11 @@ const Projects = () => {
 
         {/* Core Subject Projects */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
+          <motion.div // Changed div to motion.div
+            initial={{ opacity: 0, y: 20 }} // Added initial animation state
+            whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+            transition={{ duration: 0.5, delay: 0.2 }} // Added transition properties
+            viewport={{ once: true }} // Ensures animation plays only once
             className="mb-8"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
@@ -222,12 +221,12 @@ const Projects = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coreProjects.map((project, index) => (
-              <motion.div
+              <motion.div // Changed div to motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 20 }} // Added initial animation state
+                whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+                transition={{ duration: 0.5, delay: index * 0.1 }} // Added transition properties with staggered delay
+                viewport={{ once: true }} // Ensures animation plays only once
               >
                 <ProjectCard {...project} />
               </motion.div>

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { motion } from 'framer-motion'; // Remove motion import if no longer needed
+import { motion } from 'framer-motion';
 import { FiBook, FiExternalLink } from 'react-icons/fi';
 
 const Education = () => {
@@ -19,13 +19,21 @@ const Education = () => {
   ];
 
   return (
-    <section
+    <motion.section
       id="education"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
       className="py-20 bg-gray-50 dark:bg-gray-900"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -35,12 +43,12 @@ const Education = () => {
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             My academic journey and educational background
           </p>
-        </div>
+        </motion.div>
 
         {/* Education Timeline */}
         <div className="relative pl-8 border-l border-gray-300 dark:border-gray-700">
           {education.map((edu, index) => (
-            <div
+            <motion.div
               key={index}
               className="mb-8 flex items-start"
             >
@@ -60,7 +68,7 @@ const Education = () => {
                       href={edu.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+                      className="inline-flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700"
                     >
                       <FiExternalLink className="w-3 h-3" />
                       Visit
@@ -77,11 +85,11 @@ const Education = () => {
                   {edu.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

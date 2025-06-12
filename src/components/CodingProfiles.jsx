@@ -43,8 +43,12 @@ const CodingProfiles = () => {
   ];
 
   return (
-    <section
+    <motion.section
       id="coding-profiles"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
       className="py-20 bg-gray-50 dark:bg-gray-900"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +79,7 @@ const CodingProfiles = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 p-6 rounded-xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="flex items-center gap-4 p-6 rounded-xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
                 {profile.icon}
@@ -98,7 +102,7 @@ const CodingProfiles = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
