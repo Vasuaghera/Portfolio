@@ -93,7 +93,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 ${
+    <div className={`fixed top-0 left-0 right-0 z-[100] ${
       isScrolled
         ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg'
         : 'bg-transparent'
@@ -183,19 +183,33 @@ const Navbar = () => {
 
       {/* Mobile Menu Backdrop */}
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden"
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 backdrop-blur-lg md:hidden z-[90]"
           onClick={handleCloseMobileMenu}
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
         />
       )}
 
       {/* Mobile Menu */}
-      <div 
-        className={`fixed top-0 right-0 h-screen w-64 bg-white dark:bg-gray-900 shadow-lg md:hidden z-50 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+      <motion.div 
+        initial={{ x: "100%" }}
+        animate={{ x: isMobileMenuOpen ? 0 : "100%" }}
+        transition={{ type: "spring", damping: 20 }}
+        className="fixed top-0 right-0 h-screen w-full bg-white dark:bg-gray-900 shadow-2xl md:hidden z-[95]"
       >
         <div className="flex flex-col p-4 space-y-4">
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleCloseMobileMenu}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+              aria-label="Close menu"
+            >
+              <FiX className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+            </button>
+          </div>
           {navItems.map((item) => (
             <div
               key={item.id}
@@ -213,7 +227,7 @@ const Navbar = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
