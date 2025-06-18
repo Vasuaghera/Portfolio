@@ -42,10 +42,6 @@ const Contact = () => {
                     transition={{ duration: 1 }}
                     className="flex items-center justify-center gap-2 md:gap-3 text-sm md:text-2xl"
                   >
-                    <FaPhoneAlt className="text-gray-400" />
-                    <a href={`tel:${CONTACT.phoneNo}`} className="hover:text-white transition-colors">
-                      {CONTACT.phoneNo}
-                    </a>
                   </motion.div>
 
                   <motion.div
