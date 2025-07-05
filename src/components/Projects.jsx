@@ -12,6 +12,7 @@ import cp from '../asset/cp.png';
 import f from '../asset/f.png';
 import wd from '../asset/wd.jpeg';
 import cmgame from '../asset/cmgame.png';
+import aicodereview from '../asset/aicodereview.png';
 
 const Projects = () => {
   const mernProjects = [
@@ -57,6 +58,19 @@ const Projects = () => {
         "User authentication and secure account management.",
         "Fast, modern UI built with React and Vite.",
         "Backend powered by Node.js, Express.js, and MongoDB for data handling."
+      ]
+    },
+    {
+      title: "AI Code Reviewer",
+      description: "A full-stack web application that uses Google Gemini AI to provide intelligent code review suggestions. Built with React, Node.js, and Express.",
+      image: aicodereview,
+      githubLink: "https://github.com/Vasuaghera/Ai-code-reviewer",
+      liveLink: "https://ai-code-reviewer-efez.vercel.app/",
+      moreDetails: [
+        "AI-powered code analysis using Google Gemini AI for intelligent code review.",
+        "Real-time feedback with instant suggestions and improvements for submitted code.",
+        "Modern UI with clean, responsive interface built with Tailwind CSS.",
+        "Cross-platform compatibility working on any modern web browser."
       ]
     },
     {
