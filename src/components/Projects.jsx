@@ -10,9 +10,25 @@ import a from '../asset/a.png';
 import ti from '../asset/ti.png';
 import cp from '../asset/cp.png';
 import f from '../asset/f.png';
+import wd from '../asset/wd.jpeg';
+import cmgame from '../asset/cmgame.png';
 
 const Projects = () => {
   const mernProjects = [
+    {
+      title: "ClimbAlgoMountain",
+      description: "A comprehensive platform for learning and practicing algorithms and data structures with interactive coding challenges and progress tracking.",
+      image: cmgame,
+      githubLink: "https://github.com/Vasuaghera/ClimbAlgoMountain",
+      // liveLink: "https://climb-algo-mountain.vercel.app/",
+      moreDetails: [
+        "Interactive platform for learning algorithms and data structures.",
+        "Comprehensive user features: authentication, profile management, leaderboard, and analytics dashboard.",
+        "Social learning tools: community forum, friends system, and integrated chatbot for instant help",
+        "Premium content access and secure payment integration, all in a child-friendly, accessible UI.",
+        "Built with React, Node.js, Express.js, and MongoDB."
+      ]
+    },
     {
       title: "Doctor Appointment System",
       description: "A full-stack web application where patients can book appointments with doctors, and admins can manage doctors, appointments, and earnings.",
