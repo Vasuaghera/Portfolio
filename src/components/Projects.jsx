@@ -13,6 +13,7 @@ import f from '../asset/f.png';
 import wd from '../asset/wd.jpeg';
 import cmgame from '../asset/cmgame.png';
 import aicodereview from '../asset/aicodereview.png';
+import docuchat from '../asset/docuchat.png';
 
 const Projects = () => {
   const mernProjects = [
@@ -123,6 +124,22 @@ const Projects = () => {
     }
   ];
 
+  const hackathonProjects = [
+    {
+      title: "Financial Data Extractor",
+      description:
+        "Team Size: 3. AI-driven document chat application using RAG to process and query PDF files for financial data extraction.",
+      image: docuchat,
+      githubLink: "https://github.com/Vasuaghera/Financial-Data-Extractor",
+      // No live deployment link
+      moreDetails: [
+        "Team Size: 3",
+        "Engineered an AI-driven document chat application using RAG techniques to process and query PDF files for financial data extraction.",
+        "Incorporated Google Generative AI and Groq APIs for embeddings, FAISS for vector storage, and Streamlit for a user-friendly interface."
+      ]
+    }
+  ];
+
   const coreProjects = [
     {
       title: "RideEase – Object-Oriented Ride Booking System",
@@ -218,6 +235,39 @@ const Projects = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reactProjects.map((project, index) => (
+              <motion.div // Changed div to motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }} // Added initial animation state
+                whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+                transition={{ duration: 0.5, delay: index * 0.1 }} // Added transition properties with staggered delay
+                viewport={{ once: true }} // Ensures animation plays only once
+              >
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hackathon Projects */}
+        <div className="mb-20">
+          <motion.div // Changed div to motion.div
+            initial={{ opacity: 0, y: 20 }} // Added initial animation state
+            whileInView={{ opacity: 1, y: 0 }} // Added whileInView animation state
+            transition={{ duration: 0.5, delay: 0.2 }} // Added transition properties
+            viewport={{ once: true }} // Ensures animation plays only once
+            className="mb-8"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+              <span className="w-12 h-1 bg-blue-600 mr-4 rounded-full"></span>
+              Hackathon Projects
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 ml-16">
+              Rapidly built, high-impact projects from hackathons
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {hackathonProjects.map((project, index) => (
               <motion.div // Changed div to motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }} // Added initial animation state

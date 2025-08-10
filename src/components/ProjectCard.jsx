@@ -80,15 +80,17 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
                   <FiGithub className="w-5 h-5" />
                   <span>View Code</span>
                 </a>
-                <a
-                  href={liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
-                >
-                  <FiExternalLink className="w-5 h-5" />
-                  <span>Live Demo</span>
-                </a>
+                {liveLink && (
+                  <a
+                    href={liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
+                  >
+                    <FiExternalLink className="w-5 h-5" />
+                    <span>Live Demo</span>
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>
@@ -123,15 +125,17 @@ const ProjectCard = ({ title, description, image, githubLink, liveLink, moreDeta
                 <FiGithub className="w-5 h-5" />
                 <span>View Code</span>
               </a>
-              <a
-                href={liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
-              >
-                <FiExternalLink className="w-5 h-5" />
-                <span>Live Demo</span>
-              </a>
+              {liveLink && (
+                <a
+                  href={liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium group-hover:shadow-md" // Removed transition-all duration-300
+                >
+                  <FiExternalLink className="w-5 h-5" />
+                  <span>Live Demo</span>
+                </a>
+              )}
             </div>
           </motion.div>
         )}
