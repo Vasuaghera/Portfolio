@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from "../asset/profile.webp";
+import profile from "../asset/profile.png";
 import { HERO_CONTENT } from '../content';
 import { motion } from "framer-motion";
 import { FiDownload, FiGithub, FiLinkedin, FiMail, FiArrowRight } from 'react-icons/fi';
